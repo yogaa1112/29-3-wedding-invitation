@@ -1,12 +1,12 @@
 const User = require('../Model/user');
 
 exports.register = async (req, res) => {
-    const { email, username, password } = req.body;
+    const { email, username, NoWa, password } = req.body;
     try {
         // Tetapkan peran "client" secara default
-        const newUser = new User({ email, username, password, role: 3 }); // 3: client
+        const newUser = new User({ email, username, NoWa, password, role: 3 }); // 3: client
         await newUser.save();
-        res.redirect('/login'); // Sesuaikan dengan rute login yang Anda miliki
+        res.status(201).json({message: 'Registrasi berhasil. silahkan login.'});
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -48,28 +48,21 @@ exports.login = async (req, res) => {
 };
 
 
+exports.getProfile = async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        const user = await User.findById(userId).select('_id email username NoWa');
+        
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
 
-      /*  res.status(200).json({ message: 'Logged in successfully' });
+        res.status(200).json(user);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 };
-exports.loginRedirect = (req, res) => {
-    // Mendapatkan peran pengguna dari sesi
-    const role = req.session.role;
-    
-    // Arahkan pengguna ke halaman dashboard berdasarkan perannya
-    if (role === 1) { // Super admin
-        return res.redirect('/superAdmin');
-    } else if (role === 2) { // Admin
-        return res.redirect('/adminDashboard');
-    } else if (role === 3) { // Client
-        return res.redirect('/clientDashboard');
-    } else {
-        // Penanganan jika peran tidak dikenali
-        return res.status(400).json({ message: 'Invalid user role' });
-    }
-}; */
+
 
 
 exports.logout = (req, res) => {
