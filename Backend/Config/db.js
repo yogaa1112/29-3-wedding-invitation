@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/Wedding_Invitation', {
+mongoose.connect('mongodb+srv://admin:bWuOUVojxaNtnv7m@cluster0.hg3bibu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     });
 
 const db = mongoose.connection;

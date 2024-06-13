@@ -29,19 +29,7 @@ exports.login = async (req, res) => {
         req.session.userId = user._id;
         req.session.role = user.role;
 
-        // Redirect based on role
-        let redirectTo;
-        if (user.role === 1) { // Super Admin
-            redirectTo = '/superAdmin/dashboard';
-        } else if (user.role === 2) { // Admin
-            redirectTo = '/admin/dashboard';
-        } else if (user.role === 3) { // Client
-            redirectTo = '/client/dashboard';
-        } else {
-            return res.status(400).json({ message: 'Invalid user role' });
-        }
-
-        res.status(200).json({ message: 'Logged in successfully', redirectTo });
+        res.status(200).json({ message: 'Logged in successfully' });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

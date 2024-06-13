@@ -20,5 +20,7 @@ userSchema.methods.comparePassword = function(candidatePassword) {
 };
 
 const User = mongoose.model('users', userSchema);
+mongoose.model('User', userSchema);
 
+module.exports = mongoose.model('User');
 module.exports = User;
