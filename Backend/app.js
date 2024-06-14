@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const db = require('./Config/db');
@@ -10,7 +11,7 @@ const app = express();
 
 app.use(express.json());
 app.use(session({
-    secret: 'your-secret-key',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }));
