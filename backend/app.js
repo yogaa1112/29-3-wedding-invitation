@@ -16,6 +16,10 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.get('/', (req, res) => {
+    res.send('App berjalan')
+});
+
 app.use('/auth', authRoutes);
 app.use('/superAdmin', superAdminRoutes);
 app.use('/admin', adminRoutes);
