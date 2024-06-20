@@ -1,0 +1,66 @@
+/* Import Font */
+@import url("https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* DASHBOARD */
+
+/* DASHBOARD */
+
+/* General sidebar styles */
+.dashboard-sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background-color: rgba(191, 166, 146, 0.486);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  z-index: 2000;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow-y: auto;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.dashboard-sidebar .brand-name {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bolder;
+  font-size: 1.15rem;
+  display: inline-block;
+  color: #464646; /* Primary color */
+  text-align: center;
+  vertical-align: middle; /* Middle alignment */
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+  padding: 1rem 7px;
+}
+
+.dashboard-sidebar .list-group-item {
+  background-color: transparent; /* Inherit background color from .sidebar */
+  color: #333;
+  padding: 1rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dashboard-sidebar .list-group-item:hover {
+  background-color: #c8d3d0; /* Primary color */
+  color: black; /* White text on hover */
+  border: 2px solid black;
+}
+
+.dashboard-sidebar .list-group-item i {
+  color: #000; /* Icon color */
+  transition: color 0.3s ease;
+}
+
+.dashboard-sidebar .list-group-item:hover i {
+  color: #000; /* White icon on hover */
+}
+
+@media (max-width: 991px) {
+  .dashboard-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+}

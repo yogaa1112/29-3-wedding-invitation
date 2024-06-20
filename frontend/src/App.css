@@ -1,0 +1,778 @@
+/* Import Font */
+@import url("https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Header */
+.navbar {
+  position: sticky;
+  top: 0; /* Tetap di atas saat digulir */
+  width: 100%; /* Lebar 100% */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  background-color: rgba(191, 166, 146, 0.486);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(30px);
+  color: rgb(0, 0, 0);
+  border-bottom: 1px #00000064;
+  z-index: 1000; /* Atur z-index agar navbar di atas konten lain */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Efek shadow di bawah navbar */
+  transition: background-color 0.35s ease;
+}
+
+.NavbarBrand-custom {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bolder;
+  font-size: 1.15rem;
+  padding: 5px auto;
+  display: inline-block;
+  vertical-align: middle; /* misalnya, penyejajaran vertikal di tengah */
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Nav */
+.navbar-nav .nav-link,
+.navbar-nav .btn {
+  margin: 7px 5px;
+}
+
+/* Header.css */
+.navbar .nav-link {
+  font-family: "Averia Sans Libre", sans-serif;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+  margin: 1% 1rem;
+  padding: 0.5rem;
+  transition: 350ms ease-out;
+  position: relative; /* Tambahkan posisi relatif */
+}
+
+/* Gaya hover untuk link dalam Navbar */
+.navbar .nav-link:hover {
+  color: #00323a;
+  border-radius: 6px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Efek garis bawah pada hover */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Atur jarak dari bawah */
+  width: 100%;
+  height: 2px;
+  background-color: #00323a; /* Warna garis bawah */
+  opacity: 0; /* Mulai dengan tidak terlihat */
+  transition: opacity 0.3s ease; /* Animasi opacity */
+}
+
+.navbar .nav-link:hover::after {
+  opacity: 0.6; /* Munculkan garis bawah saat hover */
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Tambahan Header */
+.nav-buttons-wrapper .btn {
+  max-width: 75px;
+  margin: 5px auto;
+  background-color: #2b2b2b68;
+  border: none;
+  color: white;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 6.5%;
+  right: -250px; /* Hidden by default */
+  max-width: 190px;
+  height: fit-content;
+  background-color: rgba(191, 166, 146, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(30px);
+  color: rgb(0, 0, 0);
+  border: 1px solid #39393932;
+  border-radius: 8px;
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.sidebar .nav-link {
+  font-family: "Inter Tight", sans-serif;
+  text-align: end;
+  color: #000000;
+  text-decoration: none;
+  margin: 0.5rem 10px;
+  padding: 6px 10px;
+  transition: 350ms ease-out;
+  position: relative; /* Tambahkan posisi relatif */
+}
+
+.sidebar .nav-link:hover {
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  color: #FF0000 !important;
+}
+
+.sidebar.show {
+  right: 0; /* Slide in */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  font-size: 200px;
+}
+
+.close-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 990.8px) {
+  .nav-buttons-wrapper {
+    min-width: 65px;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #fcf4e7, #fdf7ee, #fefbf6);
+  min-height: 100vh; /* Set tinggi section menjadi 100% dari viewport height */
+}
+
+/* Gaya untuk teks dan tombol */
+.hero-section h1.section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hero-section button {
+  font-family: "Inter Tight", monospace;
+  width: 140px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: none;
+  background-color: #2b2b2b68;
+  color: #fff;
+  cursor: pointer;
+  color: #000000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section button:hover {
+  transition: 350ms ease;
+  font-weight: bolder;
+  width: 180px;
+  background-color: black;
+  color: #fff;
+}
+
+/* Form Buat Undangan */
+/* Add your existing CSS styles here */
+.form-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1051;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.form-container {
+  position: relative;
+}
+
+.form-logo {
+  width: 55px;
+  height: auto;
+}
+
+hr {
+  border: 0;
+  height: 3px;
+  background: #ccc;
+  background-image: linear-gradient(to right, #eee, #333, #eee);
+  margin: 20px 0;
+}
+
+.modal-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control.text-center {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 0.85rem;
+  font-family: "Poppins", sans-serif;
+
+  .text-center {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+/* Media queries for desktop */
+@media (min-width: 990.8px) {
+  h2.text-center {
+    justify-content: center;
+  }
+
+  .form-logo {
+    margin-left: 10px;
+    display: inline-block;
+  }
+}
+
+/* ABOUT */
+/* About Us Section */
+.aboutus {
+  background-color: #f4f4f4; /* Background color untuk section */
+  padding: 50px 0;
+}
+
+.aboutus img {
+  max-width: 100%; /* Pastikan gambar tidak melebihi lebar kolom */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.aboutus .section-title {
+  font-family: "Inter Tight", sans-serif;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #333;
+}
+
+.aboutus .text-about-us {
+  font-family: "Poppins", sans-serif;
+  color: #555;
+  line-height: 1.7;
+  text-align: justify; /* Justifikasi teks */
+}
+
+.aboutus .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100vh; /* Set the minimum height of the row to 100% of the viewport height */
+}
+
+.aboutus .col-md-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .aboutus .section-title {
+    text-align: center;
+  }
+
+  .aboutus {
+    text-align: center;
+  }
+}
+
+/* Fitur Section */
+.fitur {
+  background-color: linear-gradient(
+    to right #e4e4e4,
+    #eaddd7
+  ); /* Background color untuk section */
+  min-height: 100vh;
+}
+
+.fitur .section-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #333;
+}
+
+.fitur .card {
+  border: none;
+  background-color: #e8e8e8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border: 0.75px solid rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.fitur .card:hover {
+  transform: translateY(-10px);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.fitur .icon {
+  font-size: 3rem;
+  color: #333;
+}
+
+.fitur .card-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+.fitur .card-text {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .fitur .section-title {
+    text-align: center;
+  }
+}
+
+/* Produk Section */
+.produk {
+  background-color: #f2f2f2; /* Background color for the section */
+  padding: 50px 0;
+  min-height: 100vh;
+}
+
+.produk .section-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #333;
+}
+
+.produk .card {
+  border: none;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.produk .card-img-top {
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 350px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the image covers the entire area without distortion */
+}
+
+.produk .card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.produk .card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.produk .card:hover .card-body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.produk .card-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.produk .btn-primary {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+  background-color: #624141;
+  border: none;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .produk .card-title {
+    text-align: center;
+  }
+
+  .produk .btn-primary {
+    text-align: center;
+  }
+}
+
+/* PAKET.js Section */
+.paket {
+  background-color: #f8f9fa; /* Background color for the section */
+  min-height: 100vh;
+}
+
+.paket .section-title {
+  margin: 1rem auto;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #333;
+}
+
+.paket .section-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+}
+
+.paket .card {
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1.5px solid rgba(0, 0, 0, 0.25);
+}
+
+.paket .card:hover {
+  transform: translateY(-10px);
+  border: 1.5px solid rgba(0, 0, 0, 0.65);
+}
+
+.paket .medal {
+  font-size: 4rem; /* Adjust the size of the icon */
+  margin: 20px 0; /* Adjust the margin */
+}
+
+.paket .card-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.paket .card-price {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+  font-size: 1.65rem;
+  color: #07609b;
+  margin-bottom: 20px;
+  opacity: 0; /* Hide price by default */
+  transition: opacity 0.3s ease;
+}
+
+.paket .card:hover .card-price {
+  opacity: 1; /* Show price on hover */
+}
+
+.paket .card-features {
+  font-family: "Poppins", sans-serif;
+  color: #555;
+  text-align: justify;
+  line-height: 1.5rem;
+}
+
+.paket .card-features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.paket .card-features li {
+  margin-bottom: 10px;
+}
+
+.best-deal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #363636; /* Gold color for best deal */
+  color: white;
+  padding: 6px 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+@media (max-width: 990.8px) {
+  .paket .card-title,
+  .paket .card-price {
+    text-align: center;
+  }
+
+  .paket .card-features {
+    text-align: center;
+  }
+}
+
+/* ALbum/Testimonials */
+.album {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.album .section-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #333;
+}
+
+.album .section-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+.album .album-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.album .album-card:hover {
+  transform: scale(1.03);
+}
+
+.album .album-card img {
+  height: 450px;
+  object-fit: cover;
+}
+
+.album .album-card .card-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.album .album-card .card-text {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #555;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+/* FAQ */
+.faq {
+  background-color: #f8f9fa; /* Ganti dengan warna latar belakang yang diinginkan */
+  min-height: 100vh; /* Menetapkan tinggi minimum 100vh untuk menyamakan dengan seluruh section */
+  padding: 50px 0; /* Memberikan padding atas dan bawah */
+}
+
+.faq .section-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bolder;
+  font-size: 2rem; /* Memperbesar ukuran font */
+  color: #333; /* Warna teks */
+}
+
+.faq .section-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem; /* Memperbesar ukuran font */
+  color: #666; /* Warna teks */
+  margin-bottom: 30px; /* Memberikan margin bawah */
+}
+
+.faq .text-center {
+  color: #555;
+  line-height: 1.6;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ffffff !important; /* Warna teks saat accordion terbuka */
+  background-color: rgba(
+    0,
+    139,
+    139,
+    0.856
+  ) !important; /* Warna background saat accordion terbuka */
+  transition: background-color 0.3s ease; /* Transisi untuk perubahan warna background */
+}
+
+.accordion-button {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  color: #262626; /* Warna teks default */
+  background-color: rgba(191, 166, 146, 0.486) !important;
+  transition: background-color 0.3s ease; /* Transisi untuk perubahan warna background */
+}
+
+.accordion-button:hover {
+  background-color: rgb(0, 0, 65) !important;
+  color: #d0d0d0 !important;
+}
+
+.accordion-body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.05rem;
+  color: #555;
+  text-align: justify;
+  line-height: 1.6;
+  padding: 20px 40px; /* Memberikan padding lebih pada accordion body */
+  background-color: #ffffff; /* Warna background pada accordion body */
+}
+
+.accordion-item {
+  border: none; /* Menghapus border default */
+  border-radius: 10px; /* Membuat border radius */
+  overflow: hidden; /* Menyembunyikan overflow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Menambahkan shadow */
+  margin-bottom: 12px; /* Memberikan margin bawah pada setiap item */
+}
+
+.accordion-header {
+  padding: 0; /* Menghapus padding default */
+}
+
+.accordion-button:focus {
+  box-shadow: none; /* Menghapus shadow saat fokus */
+}
+
+.accordion-button:hover {
+  background-color: #dcdcdc; /* Warna background saat hover */
+}
+
+/* FOOTER */
+#footer-bg-img {
+  background-image: url();
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+}
+
+footer {
+  width: 100%;
+  background-color: #4b4343;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-align: center;
+  color: #fff5f4;
+  bottom: 0;
+}
+
+footer p {
+  font-size: 12px;
+}
+
+.icon-custom {
+  padding: 5px; /* Menambahkan padding */
+  border-radius: 8px; /* Membuat border radius bulat */
+  background-color: #38ffd485; /* Menambahkan warna latar belakang */
+}
+
+.icon-custom:hover {
+  color: white;
+}
+
+/* Footer Custom Styles */
+.NavbarBrand-custom {
+  margin: 10px 15px;
+  display: inline-block;
+}
+
+/* OJO DIMEK MEK */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  min-width: 100%;
+  max-height: 465px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  padding: 22px 10px;
+  background-color: #231e1e96;
+  width: 2.5rem;
+  height: 3rem;
+  margin: 0;
+  border-radius: 12px;
+}
+
+@media (max-width: 990.8px) {
+  .App-logo {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 3rem;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    display: none;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* DASHBOARD */
+body {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.list-group a:hover {
+  background-color: black;
+  color: black;
+  border-radius: 8px;
+}
